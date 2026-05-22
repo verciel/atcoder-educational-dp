@@ -4,6 +4,7 @@ using namespace std;
 int n,m;
 string s,t;
 
+//stores the max LCS length for each state in memo dp
 int rec(int i, int j, vector<vector<int>>& dp)
 {
 	if(i>n-1 || j>m-1) return 0;
@@ -16,6 +17,7 @@ int rec(int i, int j, vector<vector<int>>& dp)
     	return dp[i][j] = max(rec(i+1, j, dp), rec(i, j+1, dp));
 }
 
+//constructs 1 LCS by following the choices stored in memo dp
 string lcs(int i, int j, vector<vector<int>>& dp)
 {
 	string ans;
